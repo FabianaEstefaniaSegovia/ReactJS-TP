@@ -11,7 +11,7 @@ export const CartPovider = ({children}) => {
         return cart.some(product => product.id === id);
     }
 
-    const addItem = (item, cantidad) => {
+    const addProduct = (item, cantidad) => {
             if(!itemAdded(item.id)){
                 setCart(prev => [...prev, {item, cantidad}]);
             } else {
@@ -28,7 +28,7 @@ export const CartPovider = ({children}) => {
     }
     
     return (
-        <CartContext.Provider value={{cart, addItem, cleanCart, deleteItem}} >
+        <CartContext.Provider value={{cart, addProduct, cleanCart, deleteItem}} >
           {children}  
         </CartContext.Provider>
     )
