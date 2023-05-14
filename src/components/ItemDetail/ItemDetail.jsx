@@ -1,22 +1,20 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import './ItemDetail.css'
+import ItemCount from '../ItemCount/ItemCount';
+import { Link } from 'react-router-dom';
+import { CartContext } from '../../context/cartContext';
 
-const ItemDetail = ({id, nombre, detalle, precio,img, stock}) => {
+const ItemDetail = ({id, nombre, detalle, precio, img, stock}) => {
+
+  const [addQuantity, setAddQuantity] = useState(0);
+
+  const {addProduct} = useContext(CartContext);
+
+  const handlerquantity = (quantity) =>{
+    setAddQuantity(quantity);
+    const item = {id, nombre, precio};
+    addProduct(item, quantity);
   
-  let initial = 1;
-
-  const [counting, setCounting] = useState(initial);
-
-  const increaseCount = () => {
-    if (counting < stock){
-      setCounting(counting + 1)
-    }
-  }
-
-  const decreaseCount = () => {
-    if (counting > initial){
-      setCounting(counting - 1);
-    }
   }
 
   return (
@@ -26,14 +24,17 @@ const ItemDetail = ({id, nombre, detalle, precio,img, stock}) => {
         <h3>ID: {id}</h3>
         <p>Detalle: {detalle}</p>
         <img src={img} alt={nombre} />
-        <div className='contador'>
-          <button onClick={decreaseCount}> - </button>
-          <p> {counting} </p>
-          <button onClick={ increaseCount }> + </button>
-        </div>
-        <button className='cart'>Agregar al Carrito</button>
+        <Link to='./'>
+        <button>Terminar Compra</button>
+        </Link>
     </div>
   )
 }
 
 export default ItemDetail
+/*
+{
+  {
+    addQuantity > 0 ? (<Link to="./cart"> Terminar Compra </Link>) : (<ItemCount inicial={1} stock={stock} onAdd={ handlerquantity }/>)
+  }
+}*/
