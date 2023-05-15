@@ -11,9 +11,9 @@ export const CartPovider = ({children}) => {
         return cart.some(product => product.id === id);
     }
 
-    const addProduct = (item, cantidad) => {
+    const addProduct = (item, quantity) => {
             if(!itemAdded(item.id)){
-                setCart(prev => [...prev, {item, cantidad}]);
+                setCart(prev => [...prev, {item, quantity}]);
             } else {
                 console.log("Producto ya agregado");
         }

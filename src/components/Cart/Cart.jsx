@@ -6,9 +6,9 @@ import CartItem from "../CartItem/CartItem"
 const Cart = () => {
     const {cart, cleanCart} = useContext(CartContext);
 
-    const totalQuantity = cart.reduce((total, product) => total + product.quantity, 0);
+    const totalQuantity = cart.reduce((total, product) => (total + product.quantity), 0);
 
-    const total = cart.reduce((total, product) => total + product.item.precio * product.quantity, 0);
+    const total = cart.reduce((total, product) => total + (product.item.precio * product.quantity), 0);
 
     if(totalQuantity === 0){
         return(
