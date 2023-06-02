@@ -4,8 +4,9 @@
 
 }
 
-p{
+.imgCart{
     text-align: end;
     color: rgb(125, 125, 125);
+    text-decoration: none;
     
 }

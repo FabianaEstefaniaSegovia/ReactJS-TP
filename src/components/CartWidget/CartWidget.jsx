@@ -9,7 +9,7 @@ const CartWidget = () => {
     const totalQuantity = cart.reduce((total, product) => total + product.quantity, 0);
 
     return (
-        <Link to='/cart'>
+        <Link className='imgCart' to='/cart'>
             <img className='imgCarrito' src={imgCarrito} alt="Carrito" />
             {
                 totalQuantity

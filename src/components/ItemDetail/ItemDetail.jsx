@@ -25,7 +25,7 @@ const ItemDetail = ({id, nombre, detalle, precio, img, stock}) => {
         <p>Detalle: {detalle}</p>
         <img src={img} alt={nombre} />
         {
-          addQuantity > 0 ? (<Link to="/cart"> Terminar Compra </Link>) : (<ItemCount inicial={1} stock={stock} onAdd={ handlerquantity }/>)
+          addQuantity > 0 ? (<Link className='finishedCart' to="/cart"> Terminar Compra </Link>) : (<ItemCount inicial={1} stock={stock} onAdd={ handlerquantity }/>)
         }
     </div>
   )
